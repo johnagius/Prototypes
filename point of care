@@ -1135,7 +1135,7 @@ display:flex;
           <div class="card">
             <div class="hd">
               <h2>Blood Glucose Test</h2>
-              <div class="hint"></div>
+              <div class="hint">Simple capillary glucose record (mmol/L)</div>
             </div>
             <div class="bd">
               <input type="hidden" id="bg_record_id" value="" />
@@ -2117,15 +2117,15 @@ function numOrNull(v){
 
         var title = "POCT";
         var meta = "Offline prototype • stores everything in your browser";
-        if(id === "sec-dashboard"){ title = "Dashboard"; meta = ""; }
-        if(id === "sec-patients"){ title = "Patients"; meta = ""; }
-        if(id === "sec-bp"){ title = "Blood Pressure"; meta = ""; }
-        if(id === "sec-urine"){ title = "Urine (Combur 9)"; meta = ""; }
-        if(id === "sec-hba1c"){ title = "HbA1c"; meta = ""; }
-        if(id === "sec-bg"){ title = "Blood Glucose"; meta = ""; }
-        if(id === "sec-chol"){ title = "Cholesterol"; meta = ""; }
-        if(id === "sec-bmi"){ title = "Weight / BMI"; meta = ""; }
-        if(id === "sec-all"){ title = "All Records"; meta = ""; }
+        if(id === "sec-dashboard"){ title = "Dashboard"; meta = "Overview + quick search"; }
+        if(id === "sec-patients"){ title = "Patients"; meta = "Master patient record (dedupe) + mini charts"; }
+        if(id === "sec-bp"){ title = "Blood Pressure"; meta = "Record systolic/diastolic/pulse + patient data"; }
+        if(id === "sec-urine"){ title = "Urine (Combur 9)"; meta = "Record Combur 9 dipstick parameters"; }
+        if(id === "sec-hba1c"){ title = "HbA1c"; meta = "Record % and mmol/mol (auto conversion)"; }
+        if(id === "sec-bg"){ title = "Blood Glucose"; meta = "Record blood glucose readings"; }
+        if(id === "sec-chol"){ title = "Cholesterol"; meta = "Record TC/HDL/LDL/TG + ratio (auto)"; }
+        if(id === "sec-bmi"){ title = "Weight / BMI"; meta = "Record weight/height; BMI + category auto"; }
+        if(id === "sec-all"){ title = "All Records"; meta = "Unified search + print + export CSV"; }
 
         pageTitle.textContent = title;
         pageMeta.textContent = meta;
