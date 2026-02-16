@@ -529,6 +529,7 @@ display:flex;
             <button type="button" data-section="sec-bp" onclick="return POCT_nav('sec-bp')"><span class="icon">🩺</span>Blood Pressure</button>
             <button type="button" data-section="sec-urine" onclick="return POCT_nav('sec-urine')"><span class="icon">🧪</span>Urine (Combur 9)</button>
             <button type="button" data-section="sec-hba1c" onclick="return POCT_nav('sec-hba1c')"><span class="icon">🧬</span>HbA1c</button>
+            <button type="button" data-section="sec-bg" onclick="return POCT_nav('sec-bg')"><span class="icon">🩸</span>Blood Glucose</button>
             <button type="button" data-section="sec-chol" onclick="return POCT_nav('sec-chol')"><span class="icon">🫀</span>Cholesterol</button>
             <button type="button" data-section="sec-bmi" onclick="return POCT_nav('sec-bmi')"><span class="icon">⚖️</span>Weight / BMI</button>
             <button type="button" data-section="sec-all" onclick="return POCT_nav('sec-all')"><span class="icon">🗂️</span>All Records</button>
@@ -562,11 +563,6 @@ display:flex;
                   <label>Patients (unique by Patient ID)</label>
                   <input id="dashPatients" type="text" readonly />
                 </div>
-                <div class="field" style="grid-column: span 4;">
-                  <label>Total fees due (€)</label>
-                  <input id="dashFees" type="text" readonly />
-                </div>
-
                 <div class="field" style="grid-column: span 12;">
                   <label>Quick search (all modules)</label>
                   <input id="dashSearch" type="text" placeholder="Type patient name, ID, or phone..." />
@@ -586,13 +582,12 @@ display:flex;
                       <th class="nowrap">Patient ID</th>
                       <th class="nowrap">Phone</th>
                       <th class="nowrap">Age</th>
-                      <th class="nowrap">Fee Due</th>
                       <th class="nowrap">Results</th>
                       <th class="nowrap">Actions</th>
                     </tr>
                   </thead>
                   <tbody id="dashTbody">
-                    <tr><td colspan="9" class="muted">No records yet.</td></tr>
+                    <tr><td colspan="8" class="muted">No records yet.</td></tr>
                   </tbody>
                 </table>
               </div>
@@ -779,11 +774,7 @@ display:flex;
                   <label>Address (optional)</label>
                   <input id="bp_address" type="text" placeholder="Optional" />
                 </div>
-                <div class="field" style="grid-column: span 3;">
-                  <label>Fee Due (€)</label>
-                  <input id="bp_fee" type="number" min="0" step="0.01" placeholder="0.00" />
-                </div>
-                <div class="field" style="grid-column: span 3;">
+                <div class="field" style="grid-column: span 6;">
                   <label>Notes</label>
                   <input id="bp_notes" type="text" placeholder="Optional notes..." />
                 </div>
@@ -814,7 +805,6 @@ display:flex;
                 <div class="field" style="grid-column: span 3;">
                   <label>Arm</label>
                   <select id="bp_arm">
-                    <option value="">Select</option>
                     <option>Left</option>
                     <option>Right</option>
                   </select>
@@ -822,19 +812,10 @@ display:flex;
                 <div class="field" style="grid-column: span 3;">
                   <label>Position</label>
                   <select id="bp_pos">
-                    <option value="">Select</option>
                     <option>Sitting</option>
                     <option>Standing</option>
                     <option>Supine</option>
                   </select>
-                </div>
-                <div class="field" style="grid-column: span 4;">
-                  <label>Cuff Size (optional)</label>
-                  <input id="bp_cuff" type="text" placeholder="e.g. Adult / Large" />
-                </div>
-                <div class="field" style="grid-column: span 8;">
-                  <label>Device / Method (optional)</label>
-                  <input id="bp_device" type="text" placeholder="e.g. Automatic arm cuff, brand/model..." />
                 </div>
               </div>
 
@@ -874,13 +855,12 @@ display:flex;
                       <th class="nowrap">Pulse</th>
                       <th class="nowrap">Arm</th>
                       <th class="nowrap">Position</th>
-                      <th class="nowrap">Fee Due</th>
                       <th class="nowrap">Notes</th>
                       <th class="nowrap">Actions</th>
                     </tr>
                   </thead>
                   <tbody id="bp_tbody">
-                    <tr><td colspan="13" class="muted">No BP records yet.</td></tr>
+                    <tr><td colspan="12" class="muted">No BP records yet.</td></tr>
                   </tbody>
                 </table>
               </div>
@@ -927,11 +907,7 @@ display:flex;
                   <label>Address (optional)</label>
                   <input id="ur_address" type="text" placeholder="Optional" />
                 </div>
-                <div class="field" style="grid-column: span 3;">
-                  <label>Fee Due (€)</label>
-                  <input id="ur_fee" type="number" min="0" step="0.01" placeholder="0.00" />
-                </div>
-                <div class="field" style="grid-column: span 3;">
+                <div class="field" style="grid-column: span 6;">
                   <label>Notes</label>
                   <input id="ur_notes" type="text" placeholder="Optional notes..." />
                 </div>
@@ -977,11 +953,6 @@ display:flex;
                   <select id="ur_bld"></select>
                 </div>
 
-                <div class="field" style="grid-column: span 4;">
-                  <label>Specific Gravity</label>
-                  <select id="ur_sg"></select>
-                  <div class="mini">Common SG values</div>
-                </div>
                 <div class="field" style="grid-column: span 4;">
                   <label>Ketone</label>
                   <select id="ur_ket"></select>
@@ -1034,17 +1005,15 @@ display:flex;
                       <th class="nowrap">PRO</th>
                       <th class="nowrap">pH</th>
                       <th class="nowrap">BLD</th>
-                      <th class="nowrap">SG</th>
                       <th class="nowrap">KET</th>
                       <th class="nowrap">GLU</th>
                       <th class="nowrap">Appearance</th>
-                      <th class="nowrap">Fee Due</th>
                       <th class="nowrap">Notes</th>
                       <th class="nowrap">Actions</th>
                     </tr>
                   </thead>
                   <tbody id="ur_tbody">
-                    <tr><td colspan="18" class="muted">No urine records yet.</td></tr>
+                    <tr><td colspan="17" class="muted">No urine records yet.</td></tr>
                   </tbody>
                 </table>
               </div>
@@ -1091,11 +1060,7 @@ display:flex;
                   <label>Address (optional)</label>
                   <input id="hb_address" type="text" placeholder="Optional" />
                 </div>
-                <div class="field" style="grid-column: span 3;">
-                  <label>Fee Due (€)</label>
-                  <input id="hb_fee" type="number" min="0" step="0.01" placeholder="0.00" />
-                </div>
-                <div class="field" style="grid-column: span 3;">
+                <div class="field" style="grid-column: span 6;">
                   <label>Notes</label>
                   <input id="hb_notes" type="text" placeholder="Optional notes..." />
                 </div>
@@ -1120,10 +1085,6 @@ display:flex;
                   <label>HbA1c (mmol/mol)</label>
                   <input id="hb_mmol" type="number" min="0" step="1" placeholder="e.g. 48" />
                   <div class="mini">If you enter mmol/mol, % will auto-calc.</div>
-                </div>
-                <div class="field" style="grid-column: span 4;">
-                  <label>Sample / Device (optional)</label>
-                  <input id="hb_device" type="text" placeholder="e.g. Finger-prick, device name..." />
                 </div>
               </div>
 
@@ -1160,18 +1121,65 @@ display:flex;
                       <th class="nowrap">Age</th>
                       <th class="nowrap">HbA1c %</th>
                       <th class="nowrap">HbA1c mmol/mol</th>
-                      <th class="nowrap">Device</th>
-                      <th class="nowrap">Fee Due</th>
                       <th class="nowrap">Notes</th>
                       <th class="nowrap">Actions</th>
                     </tr>
                   </thead>
                   <tbody id="hb_tbody">
-                    <tr><td colspan="11" class="muted">No HbA1c records yet.</td></tr>
+                    <tr><td colspan="9" class="muted">No HbA1c records yet.</td></tr>
                   </tbody>
                 </table>
               </div>
 
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BLOOD GLUCOSE -->
+      <section class="section" id="sec-bg">
+        <div class="grid">
+          <div class="card">
+            <div class="hd">
+              <h2>Blood Glucose Test</h2>
+              <div class="hint">Simple capillary glucose record (mmol/L)</div>
+            </div>
+            <div class="bd">
+              <input type="hidden" id="bg_record_id" value="" />
+
+              <div class="row">
+                <div class="field" style="grid-column: span 3;"><label>Date &amp; Time</label><input id="bg_dt" type="datetime-local" /></div>
+                <div class="field" style="grid-column: span 3;"><label>Patient Name</label><input id="bg_name" type="text" placeholder="Full name" /></div>
+                <div class="field" style="grid-column: span 2;"><label>Patient ID</label><input id="bg_pid" type="text" placeholder="ID / Passport" /></div>
+                <div class="field" style="grid-column: span 2;"><label>Contact Number</label><input id="bg_phone" type="text" placeholder="+356 ..." /></div>
+                <div class="field" style="grid-column: span 2;"><label>Age</label><input id="bg_age" type="number" min="0" step="1" placeholder="Years" /></div>
+                <div class="field" style="grid-column: span 6;"><label>Address (optional)</label><input id="bg_address" type="text" placeholder="Optional" /></div>
+                <div class="field" style="grid-column: span 6;"><label>Notes</label><input id="bg_notes" type="text" placeholder="Optional notes..." /></div>
+              </div>
+              <div class="row">
+                <div class="field" style="grid-column: span 12;"><label>Intervention / Medication started (optional)</label><input id="bg_intervention" type="text" placeholder="Optional" /></div>
+              </div>
+              <div class="hr"></div>
+              <div class="row">
+                <div class="field" style="grid-column: span 6;"><label>Blood Glucose (mmol/L)</label><input id="bg_glucose" type="number" min="0" step="0.1" placeholder="e.g. 6.4" /></div>
+                <div class="field" style="grid-column: span 6;"><label>Timing</label><select id="bg_timing"><option>Random</option><option>Fasting</option><option>Post-prandial</option></select></div>
+              </div>
+              <div style="display:flex; gap:10px; margin-top:14px; flex-wrap:wrap;">
+                <button class="btn primary" id="bg_save"><span>💾</span>Save Blood Glucose</button>
+                <button class="btn" id="bg_clear"><span>🧹</span>Clear Form</button>
+              </div>
+              <div class="hr"></div>
+              <div class="row">
+                <div class="field" style="grid-column: span 6;"><label>Search saved blood glucose results</label><input id="bg_search" type="text" placeholder="Search by patient name, ID, phone..." /></div>
+                <div class="field" style="grid-column: span 3;"><label>From date</label><input id="bg_from" type="date" /></div>
+                <div class="field" style="grid-column: span 3;"><label>To date</label><input id="bg_to" type="date" /></div>
+              </div>
+              <div style="margin-top:12px;" class="table-wrap">
+                <table>
+                  <thead><tr><th class="nowrap">Date/Time</th><th class="nowrap">Patient</th><th class="nowrap">Patient ID</th><th class="nowrap">Phone</th><th class="nowrap">Age</th><th class="nowrap">Glucose</th><th class="nowrap">Timing</th><th class="nowrap">Notes</th><th class="nowrap">Actions</th></tr></thead>
+                  <tbody id="bg_tbody"><tr><td colspan="9" class="muted">No blood glucose records yet.</td></tr></tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
@@ -1214,11 +1222,7 @@ display:flex;
                   <label>Address (optional)</label>
                   <input id="ch_address" type="text" placeholder="Optional" />
                 </div>
-                <div class="field" style="grid-column: span 3;">
-                  <label>Fee Due (€)</label>
-                  <input id="ch_fee" type="number" min="0" step="0.01" placeholder="0.00" />
-                </div>
-                <div class="field" style="grid-column: span 3;">
+                <div class="field" style="grid-column: span 6;">
                   <label>Notes</label>
                   <input id="ch_notes" type="text" placeholder="Optional notes..." />
                 </div>
@@ -1265,10 +1269,6 @@ display:flex;
                     <option>Unknown</option>
                   </select>
                 </div>
-                <div class="field" style="grid-column: span 4;">
-                  <label>Device / Kit (optional)</label>
-                  <input id="ch_device" type="text" placeholder="e.g. Finger-prick, device name..." />
-                </div>
               </div>
 
               <div style="display:flex; gap:10px; margin-top:14px; flex-wrap:wrap;">
@@ -1308,14 +1308,12 @@ display:flex;
                       <th class="nowrap">TG</th>
                       <th class="nowrap">TC/HDL</th>
                       <th class="nowrap">Fasting</th>
-                      <th class="nowrap">Device</th>
-                      <th class="nowrap">Fee Due</th>
                       <th class="nowrap">Notes</th>
                       <th class="nowrap">Actions</th>
                     </tr>
                   </thead>
                   <tbody id="ch_tbody">
-                    <tr><td colspan="15" class="muted">No cholesterol records yet.</td></tr>
+                    <tr><td colspan="13" class="muted">No cholesterol records yet.</td></tr>
                   </tbody>
                 </table>
               </div>
@@ -1362,11 +1360,7 @@ display:flex;
                   <label>Address (optional)</label>
                   <input id="bm_address" type="text" placeholder="Optional" />
                 </div>
-                <div class="field" style="grid-column: span 3;">
-                  <label>Fee Due (€)</label>
-                  <input id="bm_fee" type="number" min="0" step="0.01" placeholder="0.00" />
-                </div>
-                <div class="field" style="grid-column: span 3;">
+                <div class="field" style="grid-column: span 6;">
                   <label>Notes</label>
                   <input id="bm_notes" type="text" placeholder="Optional notes..." />
                 </div>
@@ -1441,13 +1435,12 @@ display:flex;
                       <th class="nowrap">BMI</th>
                       <th class="nowrap">Category</th>
                       <th class="nowrap">Waist (cm)</th>
-                      <th class="nowrap">Fee Due</th>
                       <th class="nowrap">Notes</th>
                       <th class="nowrap">Actions</th>
                     </tr>
                   </thead>
                   <tbody id="bm_tbody">
-                    <tr><td colspan="13" class="muted">No weight/BMI records yet.</td></tr>
+                    <tr><td colspan="12" class="muted">No weight/BMI records yet.</td></tr>
                   </tbody>
                 </table>
               </div>
@@ -1479,6 +1472,7 @@ display:flex;
                     <option value="bp">Blood Pressure</option>
                     <option value="urine">Urine (Combur 9)</option>
                     <option value="hba1c">HbA1c</option>
+                    <option value="bg">Blood Glucose</option>
                     <option value="chol">Cholesterol</option>
                     <option value="bmi">Weight / BMI</option>
                   </select>
@@ -1522,14 +1516,13 @@ display:flex;
                       <th class="nowrap">Patient ID</th>
                       <th class="nowrap">Phone</th>
                       <th class="nowrap">Age</th>
-                      <th class="nowrap">Fee Due</th>
                       <th class="nowrap">Results</th>
                       <th class="nowrap">Notes</th>
                       <th class="nowrap">Actions</th>
                     </tr>
                   </thead>
                   <tbody id="all_tbody">
-                    <tr><td colspan="10" class="muted">No records yet.</td></tr>
+                    <tr><td colspan="9" class="muted">No records yet.</td></tr>
                   </tbody>
                 </table>
               </div>
@@ -2066,6 +2059,7 @@ function numOrNull(v){
         if(type === "bp") return "Blood Pressure";
         if(type === "urine") return "Urine (Combur 9)";
         if(type === "hba1c") return "HbA1c";
+        if(type === "bg") return "Blood Glucose";
         if(type === "chol") return "Cholesterol";
         if(type === "bmi") return "Weight / BMI";
         return type || "";
@@ -2096,6 +2090,7 @@ function numOrNull(v){
         if(id === "sec-bp"){ title = "Blood Pressure"; meta = "Record systolic/diastolic/pulse + patient data"; }
         if(id === "sec-urine"){ title = "Urine (Combur 9)"; meta = "Record Combur 9 dipstick parameters"; }
         if(id === "sec-hba1c"){ title = "HbA1c"; meta = "Record % and mmol/mol (auto conversion)"; }
+        if(id === "sec-bg"){ title = "Blood Glucose"; meta = "Record blood glucose readings"; }
         if(id === "sec-chol"){ title = "Cholesterol"; meta = "Record TC/HDL/LDL/TG + ratio (auto)"; }
         if(id === "sec-bmi"){ title = "Weight / BMI"; meta = "Record weight/height; BMI + category auto"; }
         if(id === "sec-all"){ title = "All Records"; meta = "Unified search + print + export CSV"; }
@@ -2170,7 +2165,7 @@ window.addEventListener("hashchange", function(){
       // -----------------------------
       function setDefaultDts(){
         var v = nowLocalDatetimeValue();
-        var ids = ["bp_dt","ur_dt","hb_dt","ch_dt","bm_dt"];
+        var ids = ["bp_dt","ur_dt","hb_dt","bg_dt","ch_dt","bm_dt"];
         for(var i=0;i<ids.length;i++){
           var el = document.getElementById(ids[i]);
           if(el && !el.value) el.value = v;
@@ -2220,6 +2215,7 @@ window.addEventListener("hashchange", function(){
       wirePatientIdInput(document.getElementById("bp_pid"), document.getElementById("bp_name"), document.getElementById("bp_phone"), document.getElementById("bp_age"), document.getElementById("bp_address"));
       wirePatientIdInput(document.getElementById("ur_pid"), document.getElementById("ur_name"), document.getElementById("ur_phone"), document.getElementById("ur_age"), document.getElementById("ur_address"));
       wirePatientIdInput(document.getElementById("hb_pid"), document.getElementById("hb_name"), document.getElementById("hb_phone"), document.getElementById("hb_age"), document.getElementById("hb_address"));
+      wirePatientIdInput(document.getElementById("bg_pid"), document.getElementById("bg_name"), document.getElementById("bg_phone"), document.getElementById("bg_age"), document.getElementById("bg_address"));
       wirePatientIdInput(document.getElementById("ch_pid"), document.getElementById("ch_name"), document.getElementById("ch_phone"), document.getElementById("ch_age"), document.getElementById("ch_address"));
       wirePatientIdInput(document.getElementById("bm_pid"), document.getElementById("bm_name"), document.getElementById("bm_phone"), document.getElementById("bm_age"), document.getElementById("bm_address"));
 
@@ -2228,38 +2224,32 @@ window.addEventListener("hashchange", function(){
       // -----------------------------
       // Urine dropdown scales (Combur 9-style)
       // -----------------------------
-      function fillSelect(id, options){
+      function fillSelect(id, options, defaultValue){
         var el = document.getElementById(id);
         if(!el) return;
         el.innerHTML = "";
-        var opt0 = document.createElement("option");
-        opt0.value = "";
-        opt0.textContent = "Select";
-        el.appendChild(opt0);
 
         for(var i=0;i<options.length;i++){
           var o = document.createElement("option");
           o.value = options[i];
           o.textContent = options[i];
+          if(defaultValue && options[i] === defaultValue) o.selected = true;
           el.appendChild(o);
         }
       }
 
       function initUrineScales(){
         var semi = ["Negative","Trace","+","++","+++"];
-        fillSelect("ur_leu", semi);
-        fillSelect("ur_pro", semi);
-        fillSelect("ur_bld", semi);
-        fillSelect("ur_ket", ["Negative","Trace","+","++","+++"]);
-        fillSelect("ur_glu", ["Negative","Trace","+","++","+++"]);
-        fillSelect("ur_nit", ["Negative","Positive"]);
-        fillSelect("ur_uro", ["Normal","+","++","+++"]);
+        fillSelect("ur_leu", semi, "Negative");
+        fillSelect("ur_pro", semi, "Negative");
+        fillSelect("ur_bld", semi, "Negative");
+        fillSelect("ur_ket", ["Negative","Trace","+","++","+++"], "Negative");
+        fillSelect("ur_glu", ["Negative","Trace","+","++","+++"], "Negative");
+        fillSelect("ur_nit", ["Negative","Positive"], "Negative");
+        fillSelect("ur_uro", ["Normal","+","++","+++"], "Normal");
 
         // Common pH pads (often 5.0 to 9.0)
-        fillSelect("ur_ph", ["5.0","5.5","6.0","6.5","7.0","7.5","8.0","8.5","9.0"]);
-
-        // Common SG scale
-        fillSelect("ur_sg", ["1.000","1.005","1.010","1.015","1.020","1.025","1.030"]);
+        fillSelect("ur_ph", ["5.0","5.5","6.0","6.5","7.0","7.5","8.0","8.5","9.0"], "7.0");
       }
       initUrineScales();
 
@@ -2399,9 +2389,9 @@ window.addEventListener("hashchange", function(){
         };
       }
 
-      function commonMeta(feeEl, notesEl, interventionEl){
+      function commonMeta(notesEl, interventionEl){
         return {
-          feeDue: numOrNull(feeEl.value) || 0,
+          feeDue: 0,
           notes: must(notesEl.value),
           intervention: interventionEl ? must(interventionEl.value) : ""
         };
@@ -2443,8 +2433,6 @@ window.addEventListener("hashchange", function(){
           add("Pulse (bpm)", res.pulse);
           add("Arm", res.arm);
           add("Position", res.position);
-          add("Cuff Size", res.cuff);
-          add("Device / Method", res.device);
         }else if(r.testType === "urine"){
           add("Leukocytes", res.leu);
           add("Nitrite", res.nit);
@@ -2452,14 +2440,15 @@ window.addEventListener("hashchange", function(){
           add("Protein", res.pro);
           add("pH", res.ph);
           add("Blood", res.bld);
-          add("Specific Gravity", res.sg);
           add("Ketone", res.ket);
           add("Glucose", res.glu);
           add("Appearance", res.appearance);
         }else if(r.testType === "hba1c"){
           add("HbA1c (%)", res.pct);
           add("HbA1c (mmol/mol)", res.mmol);
-          add("Sample / Device", res.device);
+        }else if(r.testType === "bg"){
+          add("Blood Glucose (mmol/L)", res.glucose);
+          add("Timing", res.timing);
         }else if(r.testType === "chol"){
           add("Total Cholesterol (mmol/L)", res.tc);
           add("HDL (mmol/L)", res.hdl);
@@ -2467,7 +2456,6 @@ window.addEventListener("hashchange", function(){
           add("Triglycerides (mmol/L)", res.tg);
           add("TC/HDL Ratio", res.ratio);
           add("Fasting", res.fasting);
-          add("Device / Kit", res.device);
         }else if(r.testType === "bmi"){
           add("Weight (kg)", res.weight);
           add("Height (cm)", res.height);
@@ -2484,7 +2472,7 @@ window.addEventListener("hashchange", function(){
         var cleaned = [];
         for(var i=0;i<rows.length;i++){
           var vv = String(rows[i].v || "").trim();
-          if(vv !== "" || rows[i].k === "pH" || rows[i].k === "Specific Gravity") cleaned.push(rows[i]);
+          if(vv !== "" || rows[i].k === "pH") cleaned.push(rows[i]);
         }
         return cleaned;
       }
@@ -2532,10 +2520,6 @@ window.addEventListener("hashchange", function(){
         html += "<div><div class='k'>Age</div><div class='v'>" + esc(p.age===null||p.age===undefined?"":String(p.age)) + "</div></div>";
         html += "<div style='grid-column:1 / span 2;'><div class='k'>Address</div><div class='v'>" + esc(p.address||"") + "</div></div>";
         html += "</div>";
-        html += "</div>";
-
-        html += "<div class='box'>";
-        html += "<div class='k'>Fee Due (€)</div><div class='v'><strong>" + esc(moneyFormat(r.feeDue||0)) + "</strong></div>";
         html += "</div>";
 
         html += "<div class='box'>";
@@ -2596,7 +2580,7 @@ window.addEventListener("hashchange", function(){
         html += "<h1>" + esc(title||"Records") + "</h1>";
         html += "<div class='meta'>Printed: " + esc(formatDisplayDatetime(new Date())) + " • Count: " + esc(String(records.length)) + "</div>";
         html += "<table><thead><tr>";
-        html += "<th>Date/Time</th><th>Test</th><th>Patient</th><th>Patient ID</th><th>Phone</th><th>Age</th><th>Fee Due</th><th>Results</th><th>Intervention</th><th>Notes</th>";
+        html += "<th>Date/Time</th><th>Test</th><th>Patient</th><th>Patient ID</th><th>Phone</th><th>Age</th><th>Results</th><th>Intervention</th><th>Notes</th>";
         html += "</tr></thead><tbody>";
 
         for(var i=0;i<records.length;i++){
@@ -2609,7 +2593,6 @@ window.addEventListener("hashchange", function(){
           html += "<td>" + esc(p.patientId||"") + "</td>";
           html += "<td>" + esc(p.phone||"") + "</td>";
           html += "<td>" + esc(p.age===null||p.age===undefined?"":String(p.age)) + "</td>";
-          html += "<td>" + esc(moneyFormat(r.feeDue||0)) + "</td>";
           html += "<td>" + esc(resultSummary(r)) + "</td>";
           html += "<td>" + esc(r.intervention||"") + "</td>";
           html += "<td>" + esc(r.notes||"") + "</td>";
@@ -2617,7 +2600,7 @@ window.addEventListener("hashchange", function(){
         }
 
         if(records.length === 0){
-          html += "<tr><td colspan='10'>No records.</td></tr>";
+          html += "<tr><td colspan='9'>No records.</td></tr>";
         }
 
         html += "</tbody></table>";
@@ -2654,6 +2637,9 @@ window.addEventListener("hashchange", function(){
           var a = (res.pct!==null && res.pct!==undefined && String(res.pct).trim()!=="") ? (res.pct + "%") : "";
           var b = (res.mmol!==null && res.mmol!==undefined && String(res.mmol).trim()!=="") ? (res.mmol + " mmol/mol") : "";
           return (a && b) ? (a + " (" + b + ")") : (a || b || "");
+        }
+        if(r.testType === "bg"){
+          return (res.glucose!==null && res.glucose!==undefined && String(res.glucose).trim()!=="" ? (res.glucose + " mmol/L") : "") + (res.timing ? (" (" + res.timing + ")") : "");
         }
         if(r.testType === "chol"){
           var parts = [];
@@ -2705,10 +2691,8 @@ window.addEventListener("hashchange", function(){
         // unique patients key
         var seen = {};
         var count = 0;
-        var fees = 0;
         for(var i=0;i<all.length;i++){
           var r = all[i];
-          fees += Number(r.feeDue||0) || 0;
           var p = r.patient || {};
           var key = "";
           if(p.patientId) key = "ID:" + lower(p.patientId);
@@ -2724,8 +2708,6 @@ window.addEventListener("hashchange", function(){
         if(pm && pm.length) count = pm.length;
 
         document.getElementById("dashPatients").value = String(count);
-        document.getElementById("dashFees").value = moneyFormat(fees);
-
         var q = lower(document.getElementById("dashSearch").value || "");
         var tbody = document.getElementById("dashTbody");
         var rows = [];
@@ -2754,7 +2736,6 @@ window.addEventListener("hashchange", function(){
           html += "<td class='nowrap mono'>" + esc(p2.patientId||"") + "</td>";
           html += "<td class='nowrap mono'>" + esc(p2.phone||"") + "</td>";
           html += "<td class='nowrap'>" + esc(p2.age===null||p2.age===undefined?"":String(p2.age)) + "</td>";
-          html += "<td class='nowrap mono'>€ " + esc(moneyFormat(r2.feeDue||0)) + "</td>";
           html += "<td class='wrap'>" + esc(resultSummary(r2)) + "</td>";
           html += "<td class='td-actions nowrap'>";
           html += "<button class='btn' data-act='print' data-id='" + esc(r2.id) + "'>🖨️ Print</button>";
@@ -3211,7 +3192,7 @@ function renderBP(){
         }
 
         if(rows.length === 0){
-          tbody.innerHTML = "<tr><td colspan='13' class='muted'>No BP records match.</td></tr>";
+          tbody.innerHTML = "<tr><td colspan='12' class='muted'>No BP records match.</td></tr>";
           return;
         }
 
@@ -3231,7 +3212,6 @@ function renderBP(){
           html += "<td class='nowrap mono'>" + esc(res.pulse||"") + "</td>";
           html += "<td class='nowrap'>" + esc(res.arm||"") + "</td>";
           html += "<td class='nowrap'>" + esc(res.position||"") + "</td>";
-          html += "<td class='nowrap mono'>€ " + esc(moneyFormat(rr.feeDue||0)) + "</td>";
           html += "<td class='wrap'>" + notesHtml(rr) + "</td>";
           html += "<td class='td-actions nowrap'>";
           html += "<button class='btn' data-act='print' data-id='" + esc(rr.id) + "'>🖨️ Print</button>";
@@ -3261,7 +3241,7 @@ function renderBP(){
         }
 
         if(rows.length === 0){
-          tbody.innerHTML = "<tr><td colspan='18' class='muted'>No urine records match.</td></tr>";
+          tbody.innerHTML = "<tr><td colspan='17' class='muted'>No urine records match.</td></tr>";
           return;
         }
 
@@ -3282,11 +3262,9 @@ function renderBP(){
           html += "<td class='nowrap'>" + esc(res.pro||"") + "</td>";
           html += "<td class='nowrap'>" + esc(res.ph||"") + "</td>";
           html += "<td class='nowrap'>" + esc(res.bld||"") + "</td>";
-          html += "<td class='nowrap mono'>" + esc(res.sg||"") + "</td>";
           html += "<td class='nowrap'>" + esc(res.ket||"") + "</td>";
           html += "<td class='nowrap'>" + esc(res.glu||"") + "</td>";
           html += "<td class='wrap'>" + esc(res.appearance||"") + "</td>";
-          html += "<td class='nowrap mono'>€ " + esc(moneyFormat(rr.feeDue||0)) + "</td>";
           html += "<td class='wrap'>" + notesHtml(rr) + "</td>";
           html += "<td class='td-actions nowrap'>";
           html += "<button class='btn' data-act='print' data-id='" + esc(rr.id) + "'>🖨️ Print</button>";
@@ -3316,7 +3294,7 @@ function renderBP(){
         }
 
         if(rows.length === 0){
-          tbody.innerHTML = "<tr><td colspan='11' class='muted'>No HbA1c records match.</td></tr>";
+          tbody.innerHTML = "<tr><td colspan='9' class='muted'>No HbA1c records match.</td></tr>";
           return;
         }
 
@@ -3333,8 +3311,6 @@ function renderBP(){
           html += "<td class='nowrap'>" + esc(p.age===null||p.age===undefined?"":String(p.age)) + "</td>";
           html += "<td class='nowrap mono'>" + esc(res.pct||"") + "</td>";
           html += "<td class='nowrap mono'>" + esc(res.mmol||"") + "</td>";
-          html += "<td class='wrap'>" + esc(res.device||"") + "</td>";
-          html += "<td class='nowrap mono'>€ " + esc(moneyFormat(rr.feeDue||0)) + "</td>";
           html += "<td class='wrap'>" + notesHtml(rr) + "</td>";
           html += "<td class='td-actions nowrap'>";
           html += "<button class='btn' data-act='print' data-id='" + esc(rr.id) + "'>🖨️ Print</button>";
@@ -3344,6 +3320,48 @@ function renderBP(){
           html += "</tr>";
         }
 
+        tbody.innerHTML = html;
+      }
+
+      function renderBG(){
+        var q = lower(document.getElementById("bg_search").value || "");
+        var from = document.getElementById("bg_from").value || "";
+        var to = document.getElementById("bg_to").value || "";
+
+        var list = filterByTest("bg");
+        var tbody = document.getElementById("bg_tbody");
+        var rows = [];
+        for(var i=0;i<list.length;i++){
+          var r = list[i];
+          if(q && recordSearchHaystack(r).indexOf(q) === -1) continue;
+          if(!withinDateRange(r.performedAtIso, from, to)) continue;
+          rows.push(r);
+        }
+        if(rows.length === 0){
+          tbody.innerHTML = "<tr><td colspan='9' class='muted'>No blood glucose records match.</td></tr>";
+          return;
+        }
+        var html = "";
+        for(var j=0;j<rows.length;j++){
+          var rr = rows[j];
+          var p = rr.patient || {};
+          var res = rr.results || {};
+          html += "<tr>";
+          html += "<td class='nowrap mono'>" + esc(formatDisplayDatetime(rr.performedAtIso)) + "</td>";
+          html += "<td class='nowrap'><strong>" + esc(p.name||"") + "</strong></td>";
+          html += "<td class='nowrap mono'>" + esc(p.patientId||"") + "</td>";
+          html += "<td class='nowrap mono'>" + esc(p.phone||"") + "</td>";
+          html += "<td class='nowrap'>" + esc(p.age===null||p.age===undefined?"":String(p.age)) + "</td>";
+          html += "<td class='nowrap mono'>" + esc(res.glucose||"") + "</td>";
+          html += "<td class='nowrap'>" + esc(res.timing||"") + "</td>";
+          html += "<td class='wrap'>" + notesHtml(rr) + "</td>";
+          html += "<td class='td-actions nowrap'>";
+          html += "<button class='btn' data-act='print' data-id='" + esc(rr.id) + "'>🖨️ Print</button>";
+          html += "<button class='btn' data-act='edit' data-id='" + esc(rr.id) + "'>✏️ Edit</button>";
+          html += "<button class='btn danger' data-act='del' data-id='" + esc(rr.id) + "'>🗑️ Delete</button>";
+          html += "</td>";
+          html += "</tr>";
+        }
         tbody.innerHTML = html;
       }
 
@@ -3364,7 +3382,7 @@ function renderBP(){
         }
 
         if(rows.length === 0){
-          tbody.innerHTML = "<tr><td colspan='15' class='muted'>No cholesterol records match.</td></tr>";
+          tbody.innerHTML = "<tr><td colspan='13' class='muted'>No cholesterol records match.</td></tr>";
           return;
         }
 
@@ -3385,8 +3403,6 @@ function renderBP(){
           html += "<td class='nowrap mono'>" + esc(res.tg||"") + "</td>";
           html += "<td class='nowrap mono'>" + esc(res.ratio||"") + "</td>";
           html += "<td class='nowrap'>" + esc(res.fasting||"") + "</td>";
-          html += "<td class='wrap'>" + esc(res.device||"") + "</td>";
-          html += "<td class='nowrap mono'>€ " + esc(moneyFormat(rr.feeDue||0)) + "</td>";
           html += "<td class='wrap'>" + notesHtml(rr) + "</td>";
           html += "<td class='td-actions nowrap'>";
           html += "<button class='btn' data-act='print' data-id='" + esc(rr.id) + "'>🖨️ Print</button>";
@@ -3416,7 +3432,7 @@ function renderBP(){
         }
 
         if(rows.length === 0){
-          tbody.innerHTML = "<tr><td colspan='13' class='muted'>No weight/BMI records match.</td></tr>";
+          tbody.innerHTML = "<tr><td colspan='12' class='muted'>No weight/BMI records match.</td></tr>";
           return;
         }
 
@@ -3436,7 +3452,6 @@ function renderBP(){
           html += "<td class='nowrap mono'>" + esc(res.bmi||"") + "</td>";
           html += "<td class='wrap'>" + esc(res.category||"") + "</td>";
           html += "<td class='nowrap mono'>" + esc(res.waist||"") + "</td>";
-          html += "<td class='nowrap mono'>€ " + esc(moneyFormat(rr.feeDue||0)) + "</td>";
           html += "<td class='wrap'>" + notesHtml(rr) + "</td>";
           html += "<td class='td-actions nowrap'>";
           html += "<button class='btn' data-act='print' data-id='" + esc(rr.id) + "'>🖨️ Print</button>";
@@ -3497,7 +3512,7 @@ function renderBP(){
 
         var tbody = document.getElementById("all_tbody");
         if(out.length === 0){
-          tbody.innerHTML = "<tr><td colspan='10' class='muted'>No records match.</td></tr>";
+          tbody.innerHTML = "<tr><td colspan='9' class='muted'>No records match.</td></tr>";
           return;
         }
 
@@ -3512,7 +3527,6 @@ function renderBP(){
           html += "<td class='nowrap mono'>" + esc(p.patientId||"") + "</td>";
           html += "<td class='nowrap mono'>" + esc(p.phone||"") + "</td>";
           html += "<td class='nowrap'>" + esc(p.age===null||p.age===undefined?"":String(p.age)) + "</td>";
-          html += "<td class='nowrap mono'>€ " + esc(moneyFormat(rr.feeDue||0)) + "</td>";
           html += "<td class='wrap'>" + esc(resultSummary(rr)) + "</td>";
           html += "<td class='wrap'>" + notesHtml(rr) + "</td>";
           html += "<td class='td-actions nowrap'>";
@@ -3535,6 +3549,7 @@ function renderBP(){
         renderBP();
         renderUrine();
         renderHbA1c();
+        renderBG();
         renderChol();
         renderBMI();
         renderAllRecords();
@@ -3548,6 +3563,7 @@ function renderBP(){
         if(type === "bp"){ setActiveSection("sec-bp"); loadBPIntoForm(id); return; }
         if(type === "urine"){ setActiveSection("sec-urine"); loadUrineIntoForm(id); return; }
         if(type === "hba1c"){ setActiveSection("sec-hba1c"); loadHbIntoForm(id); return; }
+        if(type === "bg"){ setActiveSection("sec-bg"); loadBgIntoForm(id); return; }
         if(type === "chol"){ setActiveSection("sec-chol"); loadChIntoForm(id); return; }
         if(type === "bmi"){ setActiveSection("sec-bmi"); loadBmIntoForm(id); return; }
       }
@@ -3564,16 +3580,13 @@ function renderBP(){
         phone: document.getElementById("bp_phone"),
         age: document.getElementById("bp_age"),
         address: document.getElementById("bp_address"),
-        fee: document.getElementById("bp_fee"),
         notes: document.getElementById("bp_notes"),
         intervention: document.getElementById("bp_intervention"),
         sys: document.getElementById("bp_sys"),
         dia: document.getElementById("bp_dia"),
         pulse: document.getElementById("bp_pulse"),
         arm: document.getElementById("bp_arm"),
-        pos: document.getElementById("bp_pos"),
-        cuff: document.getElementById("bp_cuff"),
-        device: document.getElementById("bp_device")
+        pos: document.getElementById("bp_pos")
       };
 
       function clearBPForm(){
@@ -3584,16 +3597,13 @@ function renderBP(){
         bpEls.phone.value = "";
         bpEls.age.value = "";
         bpEls.address.value = "";
-        bpEls.fee.value = "";
         bpEls.notes.value = "";
         bpEls.intervention.value = "";
         bpEls.sys.value = "";
         bpEls.dia.value = "";
         bpEls.pulse.value = "";
-        bpEls.arm.value = "";
-        bpEls.pos.value = "";
-        bpEls.cuff.value = "";
-        bpEls.device.value = "";
+        bpEls.arm.selectedIndex = 0;
+        bpEls.pos.selectedIndex = 0;
       }
 
       function loadBPIntoForm(id){
@@ -3610,16 +3620,13 @@ function renderBP(){
         bpEls.phone.value = p.phone || "";
         bpEls.age.value = (p.age===null||p.age===undefined) ? "" : String(p.age);
         bpEls.address.value = p.address || "";
-        bpEls.fee.value = String(r.feeDue||0);
         bpEls.intervention.value = r.intervention || "";
         bpEls.notes.value = r.notes || "";
         bpEls.sys.value = res.sys || "";
         bpEls.dia.value = res.dia || "";
         bpEls.pulse.value = res.pulse || "";
-        bpEls.arm.value = res.arm || "";
-        bpEls.pos.value = res.position || "";
-        bpEls.cuff.value = res.cuff || "";
-        bpEls.device.value = res.device || "";
+        bpEls.arm.value = res.arm || "Left";
+        bpEls.pos.value = res.position || "Sitting";
 
         toast("Loaded BP record for editing", "good");
       }
@@ -3629,7 +3636,7 @@ function renderBP(){
         if(!ok) return;
 
         var patient = patientObj(bpEls.name, bpEls.pid, bpEls.phone, bpEls.age, bpEls.address);
-        var meta = commonMeta(bpEls.fee, bpEls.notes, bpEls.intervention);
+        var meta = commonMeta(bpEls.notes, bpEls.intervention);
 
         var sys = numOrNull(bpEls.sys.value);
         var dia = numOrNull(bpEls.dia.value);
@@ -3645,9 +3652,7 @@ function renderBP(){
           dia: dia,
           pulse: (pulse === null ? "" : pulse),
           arm: must(bpEls.arm.value),
-          position: must(bpEls.pos.value),
-          cuff: must(bpEls.cuff.value),
-          device: must(bpEls.device.value)
+          position: must(bpEls.pos.value)
         };
 
         var rec = buildRecord("bp", must(bpEls.id.value), ok.dtIso, ok.dtLocal, patient, meta, results);
@@ -3671,7 +3676,6 @@ function renderBP(){
         phone: document.getElementById("ur_phone"),
         age: document.getElementById("ur_age"),
         address: document.getElementById("ur_address"),
-        fee: document.getElementById("ur_fee"),
         notes: document.getElementById("ur_notes"),
         intervention: document.getElementById("ur_intervention"),
         leu: document.getElementById("ur_leu"),
@@ -3680,7 +3684,6 @@ function renderBP(){
         pro: document.getElementById("ur_pro"),
         ph: document.getElementById("ur_ph"),
         bld: document.getElementById("ur_bld"),
-        sg: document.getElementById("ur_sg"),
         ket: document.getElementById("ur_ket"),
         glu: document.getElementById("ur_glu"),
         appearance: document.getElementById("ur_appearance")
@@ -3694,18 +3697,13 @@ function renderBP(){
         urEls.phone.value = "";
         urEls.age.value = "";
         urEls.address.value = "";
-        urEls.fee.value = "";
         urEls.notes.value = "";
         urEls.intervention.value = "";
         urEls.leu.value = "";
         urEls.nit.value = "";
         urEls.uro.value = "";
         urEls.pro.value = "";
-        urEls.ph.value = "";
-        urEls.bld.value = "";
-        urEls.sg.value = "";
-        urEls.ket.value = "";
-        urEls.glu.value = "";
+        initUrineScales();
         urEls.appearance.value = "";
       }
 
@@ -3722,7 +3720,6 @@ function renderBP(){
         urEls.phone.value = p.phone || "";
         urEls.age.value = (p.age===null||p.age===undefined) ? "" : String(p.age);
         urEls.address.value = p.address || "";
-        urEls.fee.value = String(r.feeDue||0);
         urEls.intervention.value = r.intervention || "";
         urEls.notes.value = r.notes || "";
 
@@ -3730,11 +3727,10 @@ function renderBP(){
         urEls.nit.value = res.nit || "";
         urEls.uro.value = res.uro || "";
         urEls.pro.value = res.pro || "";
-        urEls.ph.value = res.ph || "";
-        urEls.bld.value = res.bld || "";
-        urEls.sg.value = res.sg || "";
-        urEls.ket.value = res.ket || "";
-        urEls.glu.value = res.glu || "";
+        urEls.ph.value = res.ph || "7.0";
+        urEls.bld.value = res.bld || "Negative";
+        urEls.ket.value = res.ket || "Negative";
+        urEls.glu.value = res.glu || "Negative";
         urEls.appearance.value = res.appearance || "";
 
         toast("Loaded urine record for editing", "good");
@@ -3745,7 +3741,7 @@ function renderBP(){
         if(!ok) return;
 
         var patient = patientObj(urEls.name, urEls.pid, urEls.phone, urEls.age, urEls.address);
-        var meta = commonMeta(urEls.fee, urEls.notes, urEls.intervention);
+        var meta = commonMeta(urEls.notes, urEls.intervention);
 
         // For urine, allow saving even if not all values are filled, but require at least one parameter.
         var results = {
@@ -3755,7 +3751,6 @@ function renderBP(){
           pro: must(urEls.pro.value),
           ph: must(urEls.ph.value),
           bld: must(urEls.bld.value),
-          sg: must(urEls.sg.value),
           ket: must(urEls.ket.value),
           glu: must(urEls.glu.value),
           appearance: must(urEls.appearance.value)
@@ -3793,12 +3788,10 @@ function renderBP(){
         phone: document.getElementById("hb_phone"),
         age: document.getElementById("hb_age"),
         address: document.getElementById("hb_address"),
-        fee: document.getElementById("hb_fee"),
         notes: document.getElementById("hb_notes"),
         intervention: document.getElementById("hb_intervention"),
         pct: document.getElementById("hb_pct"),
-        mmol: document.getElementById("hb_mmol"),
-        device: document.getElementById("hb_device")
+        mmol: document.getElementById("hb_mmol")
       };
 
       function clearHbForm(){
@@ -3809,12 +3802,10 @@ function renderBP(){
         hbEls.phone.value = "";
         hbEls.age.value = "";
         hbEls.address.value = "";
-        hbEls.fee.value = "";
         hbEls.notes.value = "";
         hbEls.intervention.value = "";
         hbEls.pct.value = "";
         hbEls.mmol.value = "";
-        hbEls.device.value = "";
       }
 
       function loadHbIntoForm(id){
@@ -3830,7 +3821,6 @@ function renderBP(){
         hbEls.phone.value = p.phone || "";
         hbEls.age.value = (p.age===null||p.age===undefined) ? "" : String(p.age);
         hbEls.address.value = p.address || "";
-        hbEls.fee.value = String(r.feeDue||0);
         hbEls.intervention.value = r.intervention || "";
         hbEls.notes.value = r.notes || "";
 
@@ -3838,8 +3828,6 @@ function renderBP(){
         hbEls.pct.value = (res.pct===null||res.pct===undefined) ? "" : String(res.pct);
         hbEls.mmol.value = (res.mmol===null||res.mmol===undefined) ? "" : String(res.mmol);
         hbLock = false;
-
-        hbEls.device.value = res.device || "";
 
         toast("Loaded HbA1c record for editing", "good");
       }
@@ -3849,7 +3837,7 @@ function renderBP(){
         if(!ok) return;
 
         var patient = patientObj(hbEls.name, hbEls.pid, hbEls.phone, hbEls.age, hbEls.address);
-        var meta = commonMeta(hbEls.fee, hbEls.notes, hbEls.intervention);
+        var meta = commonMeta(hbEls.notes, hbEls.intervention);
 
         var pct = numOrNull(hbEls.pct.value);
         var mmol = numOrNull(hbEls.mmol.value);
@@ -3869,8 +3857,7 @@ function renderBP(){
 
         var results = {
           pct: (pct === null ? "" : pct),
-          mmol: (mmol === null ? "" : mmol),
-          device: must(hbEls.device.value)
+          mmol: (mmol === null ? "" : mmol)
         };
 
         var rec = buildRecord("hba1c", must(hbEls.id.value), ok.dtIso, ok.dtLocal, patient, meta, results);
@@ -3885,6 +3872,85 @@ function renderBP(){
         toast("HbA1c form cleared", "good");
       });
 
+      // Blood glucose
+      var bgEls = {
+        id: document.getElementById("bg_record_id"),
+        dt: document.getElementById("bg_dt"),
+        name: document.getElementById("bg_name"),
+        pid: document.getElementById("bg_pid"),
+        phone: document.getElementById("bg_phone"),
+        age: document.getElementById("bg_age"),
+        address: document.getElementById("bg_address"),
+        notes: document.getElementById("bg_notes"),
+        intervention: document.getElementById("bg_intervention"),
+        glucose: document.getElementById("bg_glucose"),
+        timing: document.getElementById("bg_timing")
+      };
+
+      function clearBgForm(){
+        bgEls.id.value = "";
+        bgEls.dt.value = nowLocalDatetimeValue();
+        bgEls.name.value = "";
+        bgEls.pid.value = "";
+        bgEls.phone.value = "";
+        bgEls.age.value = "";
+        bgEls.address.value = "";
+        bgEls.notes.value = "";
+        bgEls.intervention.value = "";
+        bgEls.glucose.value = "";
+        bgEls.timing.value = "Random";
+      }
+
+      function loadBgIntoForm(id){
+        var r = getById(id);
+        if(!r || r.testType !== "bg"){ toast("Not a blood glucose record", "warn"); return; }
+        var p = r.patient || {};
+        var res = r.results || {};
+
+        bgEls.id.value = r.id;
+        bgEls.dt.value = (r.performedAtLocal && r.performedAtLocal.indexOf("T")>=0) ? r.performedAtLocal : nowLocalDatetimeValue();
+        bgEls.name.value = p.name || "";
+        bgEls.pid.value = p.patientId || "";
+        bgEls.phone.value = p.phone || "";
+        bgEls.age.value = (p.age===null||p.age===undefined) ? "" : String(p.age);
+        bgEls.address.value = p.address || "";
+        bgEls.intervention.value = r.intervention || "";
+        bgEls.notes.value = r.notes || "";
+        bgEls.glucose.value = (res.glucose===null||res.glucose===undefined) ? "" : String(res.glucose);
+        bgEls.timing.value = res.timing || "Random";
+
+        toast("Loaded blood glucose record for editing", "good");
+      }
+
+      document.getElementById("bg_save").addEventListener("click", function(){
+        var ok = validateCommon(bgEls.dt, bgEls.name, bgEls.pid, bgEls.phone);
+        if(!ok) return;
+
+        var patient = patientObj(bgEls.name, bgEls.pid, bgEls.phone, bgEls.age, bgEls.address);
+        var meta = commonMeta(bgEls.notes, bgEls.intervention);
+        var glucose = numOrNull(bgEls.glucose.value);
+        if(glucose === null){
+          toast("Enter blood glucose value", "warn");
+          return;
+        }
+
+        var results = {
+          glucose: glucose,
+          timing: must(bgEls.timing.value)
+        };
+
+        var rec = buildRecord("bg", must(bgEls.id.value), ok.dtIso, ok.dtLocal, patient, meta, results);
+        upsertRecord(rec);
+        toast("Blood glucose saved", "good", "Stored locally in your browser");
+        clearBgForm();
+        renderAll();
+      });
+
+      document.getElementById("bg_clear").addEventListener("click", function(){
+        clearBgForm();
+        toast("Blood glucose form cleared", "good");
+      });
+
       // Chol
       var chEls = {
         id: document.getElementById("ch_record_id"),
@@ -3894,7 +3960,6 @@ function renderBP(){
         phone: document.getElementById("ch_phone"),
         age: document.getElementById("ch_age"),
         address: document.getElementById("ch_address"),
-        fee: document.getElementById("ch_fee"),
         notes: document.getElementById("ch_notes"),
         intervention: document.getElementById("ch_intervention"),
         tc: document.getElementById("ch_tc"),
@@ -3902,8 +3967,7 @@ function renderBP(){
         ldl: document.getElementById("ch_ldl"),
         tg: document.getElementById("ch_tg"),
         ratio: document.getElementById("ch_ratio"),
-        fasting: document.getElementById("ch_fasting"),
-        device: document.getElementById("ch_device")
+        fasting: document.getElementById("ch_fasting")
       };
 
       function clearChForm(){
@@ -3914,7 +3978,6 @@ function renderBP(){
         chEls.phone.value = "";
         chEls.age.value = "";
         chEls.address.value = "";
-        chEls.fee.value = "";
         chEls.notes.value = "";
         chEls.intervention.value = "";
         chEls.tc.value = "";
@@ -3923,7 +3986,6 @@ function renderBP(){
         chEls.tg.value = "";
         chEls.ratio.value = "";
         chEls.fasting.value = "";
-        chEls.device.value = "";
       }
 
       function loadChIntoForm(id){
@@ -3939,7 +4001,6 @@ function renderBP(){
         chEls.phone.value = p.phone || "";
         chEls.age.value = (p.age===null||p.age===undefined) ? "" : String(p.age);
         chEls.address.value = p.address || "";
-        chEls.fee.value = String(r.feeDue||0);
         chEls.intervention.value = r.intervention || "";
         chEls.notes.value = r.notes || "";
 
@@ -3949,7 +4010,6 @@ function renderBP(){
         chEls.tg.value = res.tg || "";
         chEls.ratio.value = res.ratio || "";
         chEls.fasting.value = res.fasting || "";
-        chEls.device.value = res.device || "";
 
         toast("Loaded cholesterol record for editing", "good");
       }
@@ -3959,7 +4019,7 @@ function renderBP(){
         if(!ok) return;
 
         var patient = patientObj(chEls.name, chEls.pid, chEls.phone, chEls.age, chEls.address);
-        var meta = commonMeta(chEls.fee, chEls.notes, chEls.intervention);
+        var meta = commonMeta(chEls.notes, chEls.intervention);
 
         var tc = numOrNull(chEls.tc.value);
         var hdl = numOrNull(chEls.hdl.value);
@@ -3983,8 +4043,7 @@ function renderBP(){
           ldl: (ldl === null ? "" : ldl),
           tg: (tg === null ? "" : tg),
           ratio: must(ratio || chEls.ratio.value),
-          fasting: must(chEls.fasting.value),
-          device: must(chEls.device.value)
+          fasting: must(chEls.fasting.value)
         };
 
         var rec = buildRecord("chol", must(chEls.id.value), ok.dtIso, ok.dtLocal, patient, meta, results);
@@ -4008,7 +4067,6 @@ function renderBP(){
         phone: document.getElementById("bm_phone"),
         age: document.getElementById("bm_age"),
         address: document.getElementById("bm_address"),
-        fee: document.getElementById("bm_fee"),
         notes: document.getElementById("bm_notes"),
         intervention: document.getElementById("bm_intervention"),
         weight: document.getElementById("bm_weight"),
@@ -4026,7 +4084,6 @@ function renderBP(){
         bmEls.phone.value = "";
         bmEls.age.value = "";
         bmEls.address.value = "";
-        bmEls.fee.value = "";
         bmEls.notes.value = "";
         bmEls.intervention.value = "";
         bmEls.weight.value = "";
@@ -4049,7 +4106,6 @@ function renderBP(){
         bmEls.phone.value = p.phone || "";
         bmEls.age.value = (p.age===null||p.age===undefined) ? "" : String(p.age);
         bmEls.address.value = p.address || "";
-        bmEls.fee.value = String(r.feeDue||0);
         bmEls.intervention.value = r.intervention || "";
         bmEls.notes.value = r.notes || "";
 
@@ -4066,7 +4122,7 @@ function renderBP(){
         if(!ok) return;
 
         var patient = patientObj(bmEls.name, bmEls.pid, bmEls.phone, bmEls.age, bmEls.address);
-        var meta = commonMeta(bmEls.fee, bmEls.notes, bmEls.intervention);
+        var meta = commonMeta(bmEls.notes, bmEls.intervention);
 
         var w = numOrNull(bmEls.weight.value);
         var h = numOrNull(bmEls.height.value);
@@ -4120,6 +4176,7 @@ function renderBP(){
             if(type === "bp") loadBPIntoForm(id);
             if(type === "urine") loadUrineIntoForm(id);
             if(type === "hba1c") loadHbIntoForm(id);
+            if(type === "bg") loadBgIntoForm(id);
             if(type === "chol") loadChIntoForm(id);
             if(type === "bmi") loadBmIntoForm(id);
             return;
@@ -4140,6 +4197,7 @@ function renderBP(){
       bindTableActions("bp_tbody", "bp");
       bindTableActions("ur_tbody", "urine");
       bindTableActions("hb_tbody", "hba1c");
+      bindTableActions("bg_tbody", "bg");
       bindTableActions("ch_tbody", "chol");
       bindTableActions("bm_tbody", "bmi");
 
@@ -4190,6 +4248,7 @@ function renderBP(){
         "bp_search","bp_from","bp_to",
         "ur_search","ur_from","ur_to",
         "hb_search","hb_from","hb_to",
+        "bg_search","bg_from","bg_to",
         "ch_search","ch_from","ch_to",
         "bm_search","bm_from","bm_to",
         "all_search","all_type","all_sort","all_from","all_to"
@@ -4318,6 +4377,7 @@ function renderBP(){
         clearBPForm();
         clearUrineForm();
         clearHbForm();
+        clearBgForm();
         clearChForm();
         clearBmForm();
         setDefaultDts();
@@ -4382,7 +4442,7 @@ function renderBP(){
       document.getElementById("all_export_csv").addEventListener("click", function(){
         var list = window.__POCT_ALL_CURRENT || [];
         var headers = [
-          "DateTime","Test","PatientName","PatientID","Phone","Age","Address","FeeDue","Intervention","Notes",
+          "DateTime","Test","PatientName","PatientID","Phone","Age","Address","Intervention","Notes",
           "ResultsSummary"
         ];
         var lines = [];
@@ -4398,7 +4458,7 @@ function renderBP(){
             p.phone || "",
             (p.age===null||p.age===undefined) ? "" : String(p.age),
             p.address || "",
-            moneyFormat(r.feeDue||0),
+            r.intervention || "",
             r.notes || "",
             resultSummary(r)
           ];
